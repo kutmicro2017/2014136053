@@ -11,7 +11,7 @@
 #define Ri_Y 23
 #define Ri_G 24 
 #define Button_A 2 // 스위치
-int delaytime = 10000; //40초
+int delaytime = 40000; //40초
 volatile bool state = true; //스위치 변수, 누를 시 false
 
 void setup() {  // OUTPUT 세팅
@@ -58,14 +58,14 @@ digitalWrite(Do_G, HIGH);
 
 for(int count=0; count<1000;count++) { // 앞으로 10초동안 반복
  if(state == false) { //스위치가 눌렸으면
-    delay(1000); //3초 대기
+    delay(3000); //3초 대기
     digitalWrite(Do_G, LOW); // 하 신호등 초록불을 꺼준다
     Yellow(Do_Y); // 하 신호등 노란불 점멸
     digitalWrite(Do_R, HIGH); // 하 신호등 빨간불을 켠다
     state = true; // 상태를 처음의 ture 로 바꿔줌
  }
  if(count == (delaytime/1000)) break;
- delay(1000); // 무조건 적으로 10초 기다릴것
+ delay(10000); // 무조건 적으로 10초 기다릴것
 }
 
 
